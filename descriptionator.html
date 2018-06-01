@@ -245,11 +245,12 @@
                 };
 
                 var sizes = ["xs", "s", "m", "l", "xl", "xxl"];
-                sizes.map(function (size) {
+                var sizeLong = ["X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large"];
+                sizes.map(function (size,ix) {
                     if ($(`#${size}`).is(':checked')) {
                         content.sizes.push(
                             {
-                                size: size,
+                                size: sizeLong[ix],
                                 b: {
                                     in: $(`#${size}_b_in`).val(),
                                     cm: $(`#${size}_b_cm`).val(),
@@ -319,10 +320,10 @@
             </th>
         </tr>
         <tr>
-            <th width="138">Size</th>
-            {{#if b}}<th width="259">Bust</th>{{/if}}
-            {{#if w}}<th width="188">Waist</th>{{/if}}
-            {{#if l}}<th width="224">Length</th>{{/if}}
+            <th>Size</th>
+            {{#if b}}<th>Bust</th>{{/if}}
+            {{#if w}}<th>Waist</th>{{/if}}
+            {{#if l}}<th>Length</th>{{/if}}
         </tr>
     </thead>
     <tbody>
