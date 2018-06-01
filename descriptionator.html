@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+
+    <title>t+b Descriptionator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>t+b Descriptionator</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                        <textarea class="form-control" rows="5" id="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Care Instructions</label>
+                        <textarea class="form-control" rows="5" id="care"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Additional Information</label>
+                        <textarea class="form-control" rows="5" id="addInfo"></textarea>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="4">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="sizing">
+                                        <label class="form-check-label" for="sizing">Sizing Chart</label>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Size</th>
+                                <th scope="col">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="b">
+                                        <label class="form-check-label" for="b">Bust</label>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="w">
+                                        <label class="form-check-label" for="w">Waist</label>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="ln">
+                                        <label class="form-check-label" for="ln">Length</label>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="xs">
+                                        <label class="form-check-label" for="xs">XS</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="xs_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xs_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xs_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xs_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xs_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xs_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="s">
+                                        <label class="form-check-label" for="s">S</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="s_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="s_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="s_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="s_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="s_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="s_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="m">
+                                        <label class="form-check-label" for="m">M</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="m_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="m_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="m_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="m_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="m_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="m_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="l">
+                                        <label class="form-check-label" for="l">L</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="l_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="l_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="l_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="l_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="l_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="l_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="xl">
+                                        <label class="form-check-label" for="xl">XL</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="xl_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xl_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xl_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xl_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xl_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xl_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="xxl">
+                                        <label class="form-check-label" for="xxl">XXL</label>
+                                    </div>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" id="xxl_b_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xxl_b_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xxl_w_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xxl_w_in" placeholder="in">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" id="xxl_l_cm" placeholder="cm">
+                                    <br/>
+                                    <input type="text" class="form-control" id="xxl_l_in" placeholder="in">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="createCode" type="submit" class="btn btn-primary">Create that Code!</button>
+                    <textarea id="code" style="opacity:0"></textarea>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js" integrity="sha256-JWyJjSicZs/EX4AJmuCHSYYARSvIkYeM79Dn1pJOSCE="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#createCode").click(function (e) {
+                e.preventDefault();
+                var source = document.getElementById("codeGen").innerHTML;
+                var template = Handlebars.compile(source);
+
+                var content = {
+                    title: $("#title").val(),
+                    description: $("#description").val(),
+                    care: $("#care").val(),
+                    addInfo: $("#addInfo").val(),
+                    b: $("#b").is(":checked"),
+                    w: $("#w").is(":checked"),
+                    l: $("#ln").is(":checked"),
+                    sizing: $("#sizing").is(":checked"),
+                    sizes: []
+                };
+
+                var sizes = ["xs", "s", "m", "l", "xl", "xxl"];
+                sizes.map(function (size) {
+                    if ($(`#${size}`).is(':checked')) {
+                        content.sizes.push(
+                            {
+                                size: size,
+                                b: {
+                                    in: $(`#${size}_b_in`).val(),
+                                    cm: $(`#${size}_b_cm`).val(),
+                                },
+                                w: {
+                                    in: $(`#${size}_w_in`).val(),
+                                    cm: $(`#${size}_w_cm`).val(),
+                                },
+                                l: {
+                                    in: $(`#${size}_l_in`).val(),
+                                    cm: $(`#${size}_l_cm`).val(),
+                                },
+                            }
+                        )
+                    }
+                });
+
+                var html = template(content);
+                $("#code").val(html);
+                $("#code")[0].select();
+                document.execCommand("copy");
+                alert("Copied, now paste that shit into the store code editor!")
+            })
+        })
+        Handlebars.registerHelper('if_even', function (conditional, options) {
+            if ((conditional % 2) == 0) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        });
+
+        Handlebars.registerHelper('breaklines', function(text) {
+            text = Handlebars.Utils.escapeExpression(text);
+            text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
+            return new Handlebars.SafeString(text);
+        });
+    </script>
+
+    <script type="text/x-handlebars-template" id="codeGen">
+<h2>
+    {{title}}
+</h2>
+<p>
+    {{breaklines description}}
+</p>
+{{#if care}}
+<h4>Care Instructions</h4>
+<p>
+    {{breaklines care}}
+</p>
+{{/if}}
+{{#if addInfo}}
+<h4>Additional Information</h4>
+<p>
+    {{breaklines addInfo}}
+</p>
+{{/if}}
+{{#if sizing}}
+<table style="border: solid 3px #bbb">
+    <thead>
+        <tr>
+            <th colspan="4">
+                <h4>
+                    Size Chart
+                </h4>
+            </th>
+        </tr>
+        <tr>
+            <th width="138">Size</th>
+            <th width="259">Bust</th>
+            <th width="188">Waist</th>
+            <th width="224">Length</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each sizes}}
+        <tr>
+            <td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{size}}</td>
+            {{#if ../b}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{b.in}}in<br/>{{b.cm}}cm</td>{{/if}}
+            {{#if ../w}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{w.in}}in<br/>{{w.cm}}cm</td>{{/if}}
+            {{#if ../l}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{l.in}}in<br/>{{l.cm}}cm</td>{{/if}}
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}
+    </script>
+</body>
+
+</html>
