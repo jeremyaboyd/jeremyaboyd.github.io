@@ -241,8 +241,13 @@
                     w: $("#w").is(":checked"),
                     l: $("#ln").is(":checked"),
                     sizing: $("#sizing").is(":checked"),
+                    columns: 1,
                     sizes: []
                 };
+
+                if(content.b) content.columns += 1;
+                if(content.w) content.columns += 1;
+                if(content.l) content.columns += 1;
 
                 var sizes = ["xs", "s", "m", "l", "xl", "xxl"];
                 var sizeLong = ["X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large"];
@@ -313,7 +318,7 @@
 <table style="border: solid 3px #bbb">
     <thead>
         <tr>
-            <th colspan="4">
+            <th colspan="{{columns}}">
                 <h4>
                     Size Chart
                 </h4>
@@ -329,10 +334,10 @@
     <tbody>
         {{#each sizes}}
         <tr>
-            <td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{size}}</td>
-            {{#if ../b}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{b.in}}in<br/>{{b.cm}}cm</td>{{/if}}
-            {{#if ../w}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{w.in}}in<br/>{{w.cm}}cm</td>{{/if}}
-            {{#if ../l}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}">{{l.in}}in<br/>{{l.cm}}cm</td>{{/if}}
+            <td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}"><b>{{size}}</b></td>
+            {{#if ../b}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{b.in}}in<br/>{{b.cm}}cm</td>{{/if}}
+            {{#if ../w}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{w.in}}in<br/>{{w.cm}}cm</td>{{/if}}
+            {{#if ../l}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{l.in}}in<br/>{{l.cm}}cm</td>{{/if}}
         </tr>
         {{/each}}
     </tbody>
