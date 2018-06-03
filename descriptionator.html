@@ -35,12 +35,12 @@
                         <label for="exampleInputPassword1">Additional Information</label>
                         <textarea class="form-control" rows="5" id="addInfo"></textarea>
                     </div>
-                    <table class="table">
+                    <table class="table" id="sizingTable">
                         <thead>
                             <tr>
                                 <th colspan="4">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="sizing">
+                                        <input class="form-check-input" type="checkbox" id="sizing" checked>
                                         <label class="form-check-label" for="sizing">Sizing Chart</label>
                                     </div>
                                 </th>
@@ -86,9 +86,9 @@
                                     <input type="text" class="form-control" id="xs_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="xs_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="xs_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="xs_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="xs_ln_in" placeholder="in">
                                 </td>
                             </tr>
                             <tr>
@@ -109,9 +109,9 @@
                                     <input type="text" class="form-control" id="s_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="s_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="s_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="s_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="s_ln_in" placeholder="in">
                                 </td>
                             </tr>
                             <tr>
@@ -132,9 +132,9 @@
                                     <input type="text" class="form-control" id="m_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="m_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="m_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="m_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="m_ln_in" placeholder="in">
                                 </td>
                             </tr>
                             <tr>
@@ -155,9 +155,9 @@
                                     <input type="text" class="form-control" id="l_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="l_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="l_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="l_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="l_ln_in" placeholder="in">
                                 </td>
                             </tr>
                             <tr>
@@ -178,9 +178,9 @@
                                     <input type="text" class="form-control" id="xl_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="xl_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="xl_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="xl_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="xl_ln_in" placeholder="in">
                                 </td>
                             </tr>
                             <tr>
@@ -201,9 +201,9 @@
                                     <input type="text" class="form-control" id="xxl_w_in" placeholder="in">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="xxl_l_cm" placeholder="cm">
+                                    <input type="text" class="form-control" id="xxl_ln_cm" placeholder="cm">
                                     <br/>
-                                    <input type="text" class="form-control" id="xxl_l_in" placeholder="in">
+                                    <input type="text" class="form-control" id="xxl_ln_in" placeholder="in">
                                 </td>
                             </tr>
                         </tbody>
@@ -226,7 +226,34 @@
         crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+        var sizes = ["xs", "s", "m", "l", "xl", "xxl"];
+        var sizeLong = ["X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large"];
+
+        var measureTypes = ["b", "w", "ln"]
+
         $(function () {
+            $('#sizingTable .form-control').prop('disabled', true);
+
+            sizes.forEach(function (size, ix) {
+                $('#' + size).click(function (e) {
+                    var checked = $(this).is(':checked');
+                    measureTypes.forEach(function (mt, ix) {
+                        if ($(`#${mt}`).is(':checked'))
+                            $(`#${size}_${mt}_in,#${size}_${mt}_cm`).prop('disabled', !checked);
+                    });
+                });
+            });
+
+            measureTypes.forEach(function (mt, ix) {
+                $('#' + mt).click(function (e) {
+                    var checked = $(this).is(':checked');
+                    sizes.forEach(function (size, ix) {
+                        if ($(`#${size}`).is(':checked'))
+                            $(`#${size}_${mt}_in,#${size}_${mt}_cm`).prop('disabled', !checked);
+                    });
+                });
+            });
+
             $("#createCode").click(function (e) {
                 e.preventDefault();
                 var source = document.getElementById("codeGen").innerHTML;
@@ -239,19 +266,18 @@
                     addInfo: $("#addInfo").val(),
                     b: $("#b").is(":checked"),
                     w: $("#w").is(":checked"),
-                    l: $("#ln").is(":checked"),
+                    ln: $("#ln").is(":checked"),
                     sizing: $("#sizing").is(":checked"),
                     columns: 1,
                     sizes: []
                 };
 
-                if(content.b) content.columns += 1;
-                if(content.w) content.columns += 1;
-                if(content.l) content.columns += 1;
 
-                var sizes = ["xs", "s", "m", "l", "xl", "xxl"];
-                var sizeLong = ["X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large"];
-                sizes.map(function (size,ix) {
+                if (content.b) content.columns += 1;
+                if (content.w) content.columns += 1;
+                if (content.ln) content.columns += 1;
+
+                sizes.forEach(function (size, ix) {
                     if ($(`#${size}`).is(':checked')) {
                         content.sizes.push(
                             {
@@ -264,14 +290,16 @@
                                     in: $(`#${size}_w_in`).val(),
                                     cm: $(`#${size}_w_cm`).val(),
                                 },
-                                l: {
-                                    in: $(`#${size}_l_in`).val(),
-                                    cm: $(`#${size}_l_cm`).val(),
+                                ln: {
+                                    in: $(`#${size}_ln_in`).val(),
+                                    cm: $(`#${size}_ln_cm`).val(),
                                 },
                             }
                         )
                     }
                 });
+
+                console.log(content);
 
                 var html = template(content);
                 $("#code").val(html);
@@ -288,7 +316,7 @@
             }
         });
 
-        Handlebars.registerHelper('breaklines', function(text) {
+        Handlebars.registerHelper('breaklines', function (text) {
             text = Handlebars.Utils.escapeExpression(text);
             text = text.replace(/(\r\n|\n|\r)/gm, '<br>');
             return new Handlebars.SafeString(text);
@@ -296,9 +324,9 @@
     </script>
 
     <script type="text/x-handlebars-template" id="codeGen">
-<h2>
+<h3>
     {{title}}
-</h2>
+</h3>
 <p>
     {{breaklines description}}
 </p>
@@ -328,16 +356,16 @@
             <th>Size</th>
             {{#if b}}<th>Bust</th>{{/if}}
             {{#if w}}<th>Waist</th>{{/if}}
-            {{#if l}}<th>Length</th>{{/if}}
+            {{#if ln}}<th>Length</th>{{/if}}
         </tr>
     </thead>
     <tbody>
         {{#each sizes}}
         <tr>
-            <td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}"><b>{{size}}</b></td>
+            <td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center"><b>{{size}}</b></td>
             {{#if ../b}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{b.in}}in<br/>{{b.cm}}cm</td>{{/if}}
             {{#if ../w}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{w.in}}in<br/>{{w.cm}}cm</td>{{/if}}
-            {{#if ../l}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{l.in}}in<br/>{{l.cm}}cm</td>{{/if}}
+            {{#if ../ln}}<td bgcolor="{{#if_even @index}}#F3F3F3{{/if_even}}" style="text-align:center">{{ln.in}}in<br/>{{ln.cm}}cm</td>{{/if}}
         </tr>
         {{/each}}
     </tbody>
