@@ -343,20 +343,20 @@
 </p>
 {{/if}}
 {{#if sizing}}
-<table style="border: solid 3px #bbb">
+<table style="border: solid 3px #bbb;border-collapse:initial">
     <thead>
         <tr>
             <th colspan="{{columns}}">
-                <h4>
+                <h4 style="text-align:center">
                     Size Chart
                 </h4>
             </th>
         </tr>
         <tr>
-            <th>Size</th>
-            {{#if b}}<th>Bust</th>{{/if}}
-            {{#if w}}<th>Waist</th>{{/if}}
-            {{#if ln}}<th>Length</th>{{/if}}
+            <th style="text-align:center">Size</th>
+            {{#if b}}<th style="text-align:center">Bust</th>{{/if}}
+            {{#if w}}<th style="text-align:center">Waist</th>{{/if}}
+            {{#if ln}}<th style="text-align:center">Length</th>{{/if}}
         </tr>
     </thead>
     <tbody>
